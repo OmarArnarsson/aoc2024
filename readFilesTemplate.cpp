@@ -1,21 +1,21 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include <sstream>
 using namespace std;
 
 
 int main(void) {
-string input;
+string temp;
 
-ifstream inputFile("sample1.txt");
-
-while (getline (inputFile, input)) {
-  cout << input;
-  cout << '\n';
+ifstream inputFile("input1.txt");
+if(inputFile) {
+      ostringstream ss;
+      ss << inputFile.rdbuf(); 
+      temp = ss.str();
 }
-
 inputFile.close();
 
-cout << input;
+cout << temp;
 return 0;
 }
